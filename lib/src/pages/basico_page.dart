@@ -49,7 +49,7 @@ class BasicoPage extends StatelessWidget {
         child: Row(
           children: <Widget>[
 
-            Expanded( // Sirve para que ocupe todo el espacio sin robarle espacio al icono de la estrella y al número 41
+            Expanded( // Sirve para que ocupe todo el espacio sin robarle espacio al icono de la estrella y al número 41 (prueba de git borrar)
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[

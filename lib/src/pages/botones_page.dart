@@ -13,7 +13,7 @@ class BotonesPage extends StatelessWidget {
         children: <Widget>[
           _fondoApp(),
 
-          SingleChildScrollView(
+          SingleChildScrollView( // Me permite hacer scroll
             child: Column(
               children: <Widget>[
                 _titulos(),
@@ -47,8 +47,8 @@ class BotonesPage extends StatelessWidget {
     );
 
 
-    final cajaRosa = Transform.rotate(
-      angle: -pi / 5.0,
+    final cajaRosa = Transform.rotate( // Sirve para rotar la caja
+      angle: -pi / 5.0, // Ángulo de rotación
       child: Container(
         height: 360.0,
         width: 360.0,
@@ -67,7 +67,7 @@ class BotonesPage extends StatelessWidget {
     return Stack(
       children: <Widget>[
         gradiente,
-        Positioned(
+        Positioned( // Para poder ubicar un elemento con coordenadas específicas
           top: -100.0,
           child: cajaRosa
         )
@@ -78,14 +78,14 @@ class BotonesPage extends StatelessWidget {
 
   Widget _titulos() {
 
-    return SafeArea(
+    return SafeArea( // Para salvar el notch del móvil
       child: Container(
         padding: EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text('Classify transaction', style: TextStyle( color: Colors.white, fontSize: 30.0, fontWeight: FontWeight.bold )),
-            SizedBox( height: 10.0 ),
+            SizedBox( height: 10.0 ), // Para separar los textos
             Text('Classify this transaction into a particular category', style: TextStyle( color: Colors.white, fontSize: 18.0 )),
           ],
         ),
@@ -96,11 +96,11 @@ class BotonesPage extends StatelessWidget {
 
   Widget _bottomNavigationBar(BuildContext context) {
 
-    return Theme(
-      data: Theme.of(context).copyWith(
-        canvasColor: Color.fromRGBO(55, 57, 84, 1.0),
-        primaryColor: Colors.pinkAccent,
-        textTheme: Theme.of(context).textTheme
+    return Theme( // Para poder personalizar el bottomNavigationBar tengo que crear un nuevo tema diferente del de la aplicación general
+      data: Theme.of(context).copyWith( // Con esto creamos una copia del tema actual.
+        canvasColor: Color.fromRGBO(55, 57, 84, 1.0), // Color de fondo
+        primaryColor: Colors.pinkAccent, // Color primario de los iconos (en este caso)
+        textTheme: Theme.of(context).textTheme // Color secundario de los iconos (cuando no están activos)
           .copyWith( caption: TextStyle( color: Color.fromRGBO(116, 117, 152, 1.0) ) )
       ),
       child: BottomNavigationBar(
@@ -108,7 +108,7 @@ class BotonesPage extends StatelessWidget {
         items: [
           BottomNavigationBarItem(
             icon: Icon( Icons.calendar_today, size: 30.0 ),
-            title: Container()
+            title: Container() // Como obliga a poner un texto ponemos esto para no tener que escribir nada
           ),
           BottomNavigationBarItem(
             icon: Icon( Icons.bubble_chart, size: 30.0 ),
@@ -127,7 +127,7 @@ class BotonesPage extends StatelessWidget {
 
   Widget _botonesRedondeados() {
 
-    return Table(
+    return Table( 
       children: [
         TableRow(
           children: [
@@ -161,8 +161,8 @@ class BotonesPage extends StatelessWidget {
   Widget _crearBotonRedondeado( Color color, IconData icono, String texto ) {
  
  
-    return ClipRect(
-      child: BackdropFilter(
+    return ClipRect( // En los dispositivos Android puede dar un error el blur. Para evitarlo añadimos el ClipRect
+      child: BackdropFilter( // Para que lo que hay por debajo se vea borroso (según el filtro aplicado)
         filter: ImageFilter.blur( sigmaX: 10.0, sigmaY: 10.0 ),
         child: Container(
           height: 180.0,

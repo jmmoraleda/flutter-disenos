@@ -29,7 +29,7 @@ class BasicoPage extends StatelessWidget {
 
   Widget _crearImagen(BuildContext context) {
     return Container(
-      width: double.infinity,
+      width: double.infinity, // Para que la imagen utilice todo el ancho posible
       child: GestureDetector(
         onTap: ()=> Navigator.pushNamed(context, 'scroll'),
         child: Image(
@@ -43,13 +43,13 @@ class BasicoPage extends StatelessWidget {
 
   Widget _crearTitulo() {
     
-    return SafeArea(
+    return SafeArea( // Comprueba si la información se ve o no en un espacio y si no la mueve
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
         child: Row(
           children: <Widget>[
 
-            Expanded( // Sirve para que ocupe todo el espacio sin robarle espacio al icono de la estrella y al número 41 (prueba de git borrar)
+            Expanded( // Sirve para que ocupe todo el espacio sin robarle espacio al icono de la estrella y al número 41
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[

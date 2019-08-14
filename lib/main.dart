@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    // Con esto conseguimos que la barra de estados superior del móvil se vea transparente
     SystemChrome.setSystemUIOverlayStyle( SystemUiOverlayStyle.light.copyWith(
       statusBarColor: Colors.transparent
     ));
